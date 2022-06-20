@@ -1,5 +1,6 @@
 package com.example.awsbook.service;
 
+import com.example.awsbook.controller.PostForm;
 import com.example.awsbook.domain.Post;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +15,7 @@ public interface PostService {
 
     List<Post> readAll();
 
-    Long update(Post post);
+    Long update(Long id, PostForm postForm);
 
     void delete(Long id);
 

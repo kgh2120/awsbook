@@ -4,8 +4,13 @@ package com.example.awsbook.controller;
 import com.example.awsbook.domain.Post;
 import com.example.awsbook.service.PostService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import java.net.URI;
 
 @RequiredArgsConstructor
 @Controller
@@ -18,14 +23,44 @@ public class PostController {
     @GetMapping("/add")
     public String createPostForm(@ModelAttribute PostForm post) {
 
-        return "post/createMemberForm";
+        return "post/createPostForm";
     }
+
+    @ResponseBody
     @PostMapping("/add")
-    public String createPost(@RequestBody PostForm postForm) {
+    public ResponseEntity<Post> createPost(@RequestBody PostForm postForm) {
         Post post = Post.builder().author(postForm.getAuthor())
                         .description(postForm.getDescription()).build();
         postService.createPost(post);
 
-        return "redirect:/";
+        URI location = UriComponentsBuilder.fromUriString("localhost:8080/post")
+                .path("/{id}")
+                .buildAndExpand(post.getId())
+                .toUri();
+
+
+        return ResponseEntity.created(location).body(post);
     }
+
+    @GetMapping("/{id}")
+    public String updatePostForm(@PathVariable Long id, Model model) {
+        Post post = postService.readOne(id);
+        model.addAttribute("post", post);
+        return "post/updatePostForm";
+    }
+
+    @ResponseBody
+    @PutMapping("/{id}")
+    public ResponseEntity<Post> updatePost(@PathVariable Long id, @RequestBody PostForm postForm) {
+
+        postService.update(id, postForm);
+
+        return ResponseEntity.ok().body(postService.readOne(id));
+    }
+
+    @DeleteMapping("/{id}")
+    public void deletePost(@PathVariable Long id) {
+        postService.delete(id);
+    }
+
 }
