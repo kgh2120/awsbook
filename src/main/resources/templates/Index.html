@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragment/header :: header(~{::title})">
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+
+    <h1>집이다 이자식아</h1>
+
+
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">작성자</th>
+            <th scope="col">작성일</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="post : ${posts}">
+            <td ><a th:href="@{/post/{id}(id = ${post.id})}" th:text="${post.id}"></a></td>
+            <td th:text="${post.author}">Otto</td>
+            <td th:text="${post.lastModifiedDate}">@mdo</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a role="button" th:href="@{/post/add}" class="btn btn-lg w-100 btn-primary">새로운 게시글 생성</a>
+</body>
+</html>
