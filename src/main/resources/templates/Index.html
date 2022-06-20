@@ -6,9 +6,10 @@
 </head>
 <body>
 
-    <h1>집이다 이자식아</h1>
+    <h1 th:text="${userName} 님 안녕하세요">집이다 이자식아</h1>
 
 
+    <a th:href="@{/login/oauth2/naver}" class="btn btn-primary" role="button">네이버 로그인</a>
 
     <table class="table">
         <thead>
