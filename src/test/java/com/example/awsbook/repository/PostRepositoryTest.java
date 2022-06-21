@@ -50,7 +50,7 @@ class PostRepositoryTest {
     @Test
     void findAll() {
         List<Post> all = repository.findAll();
-        assertThat(all.size()).isSameAs(10);
+        assertThat(all.size()).isSameAs(20);
     }
 
 }

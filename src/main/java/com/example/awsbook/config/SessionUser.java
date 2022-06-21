@@ -5,6 +5,7 @@ import lombok.Getter;
 
 import java.io.Serializable;
 
+
 @Getter
 public class SessionUser implements Serializable {
 
@@ -20,4 +21,13 @@ public class SessionUser implements Serializable {
         this.name = user.getName();
         this.email = user.getEmail();
     }
+
+    @Override
+    public String toString() {
+        return "SessionUser{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }
+

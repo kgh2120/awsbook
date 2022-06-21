@@ -4,9 +4,10 @@ import com.example.awsbook.domain.Role;
 import com.example.awsbook.domain.User;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Map;
-
+@Slf4j
 @Getter
 public class OAuthAttributes {
     private Map<String, Object> attributes; // OAuth2 반환하는 유저 정보 Map
@@ -35,10 +36,12 @@ public class OAuthAttributes {
 
         Map<String, Object> response = (Map<String, Object>) attributes.get("response");
 
+        log.info("response {}",response);
+
         return OAuthAttributes.builder()
-                .name((String) attributes.get("name"))
-                .email((String) attributes.get("email"))
-                .attributes(attributes)
+                .name((String) response.get("name"))
+                .email((String) response.get("email"))
+                .attributes(response)
                 .nameAttributeKey(userNameAttributeName)
                 .build();
 

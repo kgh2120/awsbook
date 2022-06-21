@@ -37,7 +37,9 @@ var main = {
                 return response.json();
             })
             .then((myJson) => {
-                location.href = 'http://localhost:8080/post/'+myJson.id;
+                alert(JSON.stringify(myJson));
+                location.href = "/";
+                // location.href = 'http://localhost:8080/post/'+myJson.id;
             })
             .catch((error) => {
                 console.log(error);

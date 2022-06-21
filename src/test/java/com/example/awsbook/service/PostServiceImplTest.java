@@ -36,7 +36,7 @@ class PostServiceImplTest {
     void readOne_Exception() {
 
 
-        assertThatThrownBy(() -> postService.readOne(3L))
+        assertThatThrownBy(() -> postService.readOne(999L))
                 .isInstanceOf(NoSuchElementException.class);
 
 
