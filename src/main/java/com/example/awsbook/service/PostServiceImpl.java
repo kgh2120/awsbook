@@ -2,6 +2,7 @@ package com.example.awsbook.service;
 
 import com.example.awsbook.controller.PostForm;
 import com.example.awsbook.domain.Post;
+import com.example.awsbook.exception.MyNoSuchElementException;
 import com.example.awsbook.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,7 +27,7 @@ public class PostServiceImpl implements PostService{
     @Override
     public Post readOne(Long id) {
 
-        return repository.findById(id).orElseThrow();
+        return repository.findById(id).orElseThrow(MyNoSuchElementException::new);
     }
 
     @Override
@@ -36,7 +37,7 @@ public class PostServiceImpl implements PostService{
 
     @Override
     public Long update(Long id, PostForm postForm) {
-        Post finded = repository.findById(id).orElseThrow();
+        Post finded = repository.findById(id).orElseThrow(MyNoSuchElementException::new);
         finded.setAuthor(postForm.getAuthor());
         finded.setDescription(postForm.getDescription());
 
