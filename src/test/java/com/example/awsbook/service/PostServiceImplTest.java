@@ -1,6 +1,7 @@
 package com.example.awsbook.service;
 
 import com.example.awsbook.domain.Post;
+import com.example.awsbook.exception.MyNoSuchElementException;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +38,7 @@ class PostServiceImplTest {
 
 
         assertThatThrownBy(() -> postService.readOne(999L))
-                .isInstanceOf(NoSuchElementException.class);
+                .isInstanceOf(MyNoSuchElementException.class);
 
 
     }
