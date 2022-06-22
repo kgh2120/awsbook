@@ -19,7 +19,6 @@ public class Post extends BaseEntity{
 
     @Id
     @GeneratedValue
-    @Column(name = "post_id")
     private Long id;
 
     private String author;
