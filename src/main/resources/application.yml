@@ -1,13 +1,15 @@
 
 spring:
   jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQL8InnoDBDialect
+    hibernate:
+      ddl-auto: create
 
 
   profiles:
     include: oauth,real-db
 
-  session:
-    store-type: jdbc
+#  session:
+#    store-type: jdbc
