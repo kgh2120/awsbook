@@ -4,9 +4,8 @@ plugins {
     id 'java'
 }
 
-jar {
-    enabled = false
-}
+tasks.bootJar {enabled = false}
+tasks.jar {enabled = false}
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
