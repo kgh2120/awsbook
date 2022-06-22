@@ -3,7 +3,9 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
 }
-
+jar{
+    enabled = false;
+}
 tasks.bootJar {enabled = false}
 tasks.jar {enabled = false}
 
