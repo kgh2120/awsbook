@@ -13,3 +13,6 @@ spring:
 
   session:
     store-type: jdbc
+
+    config:
+      use-legacy-processing: true
