@@ -4,9 +4,12 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
 
+
   session:
     store-type: jdbc
 
+    thymeleaf:
+      prefix: classpath:/templates/
   profiles:
     group:
       local:

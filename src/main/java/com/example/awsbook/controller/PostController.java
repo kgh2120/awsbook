@@ -15,7 +15,7 @@ import java.net.URI;
 @Slf4j
 @RequiredArgsConstructor
 @Controller
-@RequestMapping("/post")
+@RequestMapping("post")
 public class PostController {
 
     private final PostService postService;
