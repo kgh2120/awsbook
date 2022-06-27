@@ -21,7 +21,7 @@ public class HomeController {
     private final HttpSession httpSession;
 
 
-    @GetMapping
+    @GetMapping("/haha")
     public String home(Model model,@LoginUser SessionUser user) {
 
         model.addAttribute("posts",postService.readAll());
