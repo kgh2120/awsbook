@@ -39,6 +39,7 @@ public class SecurityConfig  {
                 .logoutSuccessUrl("/home/index")
                 .and()
                 .oauth2Login()
+                .defaultSuccessUrl("/home/index")
                 .userInfoEndpoint()
                 .userService(customeOauth2UserService);
         //출처: https://honeywater97.tistory.com/264 [HoneyWater:티스토리]
