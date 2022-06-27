@@ -18,10 +18,7 @@ public class HomeController {
     private final PostService postService;
     private final HttpSession httpSession;
 
-    @GetMapping("hello")
-    public String hello() {
-        return "hello";
-    }
+
     @GetMapping
     public String home(Model model,@LoginUser SessionUser user) {
 
