@@ -60,5 +60,20 @@ public class HelloController {
         return "index";
     }
 
+    @GetMapping("/index")
+    public String index(Model model, @LoginUser SessionUser user) {
+
+        model.addAttribute("posts",postService.readAll());
+
+
+        log.info("helloController - user = {}",user);
+        if (user != null) {
+            model.addAttribute("userName", user.getName());
+        }else
+            model.addAttribute("userName", "Guest");
+
+        return "indexLeaf";
+    }
+
 
 }
