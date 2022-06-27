@@ -1,13 +1,4 @@
 spring:
-  jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-
-
-  session:
-    store-type: jdbc
-
   thymeleaf:
     prefix: classpath:/templates/
   profiles:
@@ -18,3 +9,26 @@ spring:
         - oauth
         - real-db
 
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+  jpa:
+    hibernate:
+      ddl-auto: create
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: real
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+
+
+  session:
+    store-type: jdbc

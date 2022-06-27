@@ -36,7 +36,7 @@ public class SecurityConfig  {
                 .anyRequest().authenticated()
                 .and()
                 .logout()
-                .logoutSuccessUrl("/")
+                .logoutSuccessUrl("/home/index")
                 .and()
                 .oauth2Login()
                 .userInfoEndpoint()
