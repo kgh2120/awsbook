@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Entity @NoArgsConstructor @Getter
 public class User extends BaseEntity{
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
