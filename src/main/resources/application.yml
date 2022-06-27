@@ -8,8 +8,8 @@ spring:
   session:
     store-type: jdbc
 
-    thymeleaf:
-      prefix: classpath:/templates/
+  thymeleaf:
+    prefix: classpath:/templates/
   profiles:
     group:
       local:
