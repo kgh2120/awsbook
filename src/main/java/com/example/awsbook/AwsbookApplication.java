@@ -12,11 +12,7 @@ public class AwsbookApplication {
 
     public static void main(String[] args) {
 
-
-        SpringApplication application = new SpringApplication(AwsbookApplication.class);
-        application.setWebApplicationType(WebApplicationType.SERVLET);
-        application.setBannerMode(Banner.Mode.OFF);     // 배너 감추기
-        application.run(args);
+        SpringApplication.run(AwsbookApplication.class);
     }
 
 }
