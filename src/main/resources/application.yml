@@ -1,22 +1,17 @@
-
 spring:
   jpa:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
 
-  profiles:
-    include:
-      - oauth
-      - real-db
-#  config:
-#    activate:
-#      on-profile: "real"
-
   session:
     store-type: jdbc
 
-    config:
-      use-legacy-processing: true
-server:
-  port: 8888
+  profiles:
+    group:
+      local:
+        - oauth
+      real:
+        - oauth
+        - real-db
+
