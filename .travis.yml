@@ -17,6 +17,23 @@ cache:
     - '$HOME/.gradle'
 script: "./gradlew clean build"
 
+
+before_deploy:
+  - zip -r awsbook
+  - mkdir -p deploy
+  - mv awsbook.zip deploy/awsbook.zip
+
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY # travis 에 설정한 값
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: aws-book-springboot-build
+    region: ap-northeast-2
+    skip_cleanup: true
+    acl: private
+    local_dir: deploy # before_deploy에서 생성한 deploy 폴더
+    wait-until-deployed: true
+
 notifications:
   email:
     recipients:
