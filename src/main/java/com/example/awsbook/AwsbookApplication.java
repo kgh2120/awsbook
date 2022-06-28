@@ -14,6 +14,7 @@ public class AwsbookApplication {
 
         SpringApplication.run(AwsbookApplication.class);
 
+
     }
 
 }
