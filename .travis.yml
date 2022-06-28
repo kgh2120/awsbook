@@ -19,7 +19,7 @@ script: "./gradlew clean build"
 
 
 before_deploy:
-  - zip -r awsbook
+  - zip -r awsbook *
   - mkdir -p deploy
   - mv awsbook.zip deploy/awsbook.zip
 
