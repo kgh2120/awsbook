@@ -13,6 +13,7 @@ public class AwsbookApplication {
     public static void main(String[] args) {
 
         SpringApplication.run(AwsbookApplication.class);
+
     }
 
 }
